@@ -1,15 +1,32 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import HiScore from "../components/HiScore/index";
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+import {
+  Container,
+  Heading,
+  useColorMode,
+  Button,
+  Flex,
+  Spacer,
+} from "@chakra-ui/react";
 
-export default IndexPage
+const IndexPage = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  return (
+    <Container>
+      <Flex>
+        <Heading as="h2" size="xl">
+          OSRS tracker
+        </Heading>
+        <Spacer />
+        <Button onClick={toggleColorMode}>
+          Toggle {colorMode === "light" ? "Dark" : "Light"}
+        </Button>
+      </Flex>
+
+      <HiScore />
+    </Container>
+  );
+};
+
+export default IndexPage;

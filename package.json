@@ -8,9 +8,16 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.6.3",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "framer-motion": "^4.1.17",
     "next": "latest",
+    "oldschooljs": "^1.9.1",
+    "osrs-json-api": "^1.4.3",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-query": "^3.16.1"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",
