@@ -4,7 +4,9 @@ import SkillTable from "./SkillTable";
 import { Spinner, Container, Heading } from "@chakra-ui/react";
 import { accountResponse } from "../../types/HiScore";
 import CombatLevel from "./CombatLevel";
-
+import MinigameTable from "./MinigameTable";
+import BossRecordTable from "./BossRecordTable";
+import ClueTable from "./ClueTable";
 type hiScoreProps = {
   username: string;
 };
@@ -24,11 +26,12 @@ const HiScore = ({ username }: hiScoreProps) => {
 
   return (
     <Container>
-      <Heading as="h4" size="md">
-        Displaying skills for {userQuery.data.username}
-      </Heading>
-      <CombatLevel data={userQuery.data} />
-      <SkillTable data={userQuery.data} />
+      <Heading>{userQuery.data.username}</Heading>
+      <CombatLevel data={userQuery.data.skills} />
+      <SkillTable data={userQuery.data.skills} />
+      <MinigameTable data={userQuery.data.minigames} />
+      <BossRecordTable data={userQuery.data.bossRecords} />
+      <ClueTable data={userQuery.data.clues} />
     </Container>
   );
 };

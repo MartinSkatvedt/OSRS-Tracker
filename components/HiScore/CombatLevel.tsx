@@ -1,5 +1,5 @@
 import React from "react";
-import { accountResponse } from "../../types/HiScore";
+import { skillType } from "../../types/HiScore";
 
 import {
   Container,
@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 
 type combatLevelProps = {
-  data: accountResponse;
+  data: skillType;
 };
 
 const calcCombatLevel = (
@@ -32,15 +32,14 @@ const calcCombatLevel = (
 };
 
 const CombatLevel = ({ data }: combatLevelProps) => {
-  const { skills } = data;
   const levels = calcCombatLevel(
-    skills.defence.level,
-    skills.hitpoints.level,
-    skills.prayer.level,
-    skills.attack.level,
-    skills.strength.level,
-    skills.ranged.level,
-    skills.magic.level
+    data.defence.level,
+    data.hitpoints.level,
+    data.prayer.level,
+    data.attack.level,
+    data.strength.level,
+    data.ranged.level,
+    data.magic.level
   );
   return (
     <Container>

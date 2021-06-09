@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { accountResponse } from "../../types/HiScore";
+import { skillType } from "../../types/HiScore";
 import {
   Table,
   Thead,
@@ -10,11 +10,12 @@ import {
   Td,
   TableCaption,
   Container,
+  Button,
 } from "@chakra-ui/react";
 const maxXP = 13034431;
 
 type skillTableProps = {
-  data: accountResponse;
+  data: skillType;
 };
 
 const calculateComplete = (currentXp: number): string => {
@@ -26,7 +27,9 @@ const calculateOverallComplete = (currentXp: number): string => {
 };
 
 const SkillTable = ({ data }: skillTableProps) => {
-  const TableElements = Object.keys(data.skills).map((key: string) => (
+  const [show, changeVisibility] = useState(false);
+
+  const TableElements = Object.keys(data).map((key: string) => (
     <Tr key={key}>
       <Td>
         <Image
@@ -36,30 +39,40 @@ const SkillTable = ({ data }: skillTableProps) => {
           height="25"
         />
       </Td>
-      <Td> {data.skills[key].level}</Td>
-      <Td> {data.skills[key].xp}</Td>
+      <Td> {data[key].level}</Td>
+      <Td> {data[key].xp}</Td>
       {key == "overall" ? (
-        <Td> {calculateOverallComplete(data.skills[key].xp)}</Td>
+        <Td> {calculateOverallComplete(data[key].xp)}</Td>
       ) : (
-        <Td> {calculateComplete(data.skills[key].xp)}</Td>
+        <Td> {calculateComplete(data[key].xp)}</Td>
       )}
     </Tr>
   ));
 
   return (
     <Container>
-      <Table size="sm">
-        <TableCaption>Overview of account skills</TableCaption>
-        <Thead>
-          <Tr>
-            <Th>Skill</Th>
-            <Th>Level</Th>
-            <Th>XP</Th>
-            <Th>% Complete</Th>
-          </Tr>
-        </Thead>
-        <Tbody>{TableElements}</Tbody>
-      </Table>
+      <Button
+        width="100%"
+        onClick={() =>
+          show ? changeVisibility(false) : changeVisibility(true)
+        }
+      >
+        {show ? "Hide skills" : "Show skills"}
+      </Button>
+      {show ? (
+        <Table size="sm">
+          <TableCaption>Overview of account skills</TableCaption>
+          <Thead>
+            <Tr>
+              <Th>Skill</Th>
+              <Th>Level</Th>
+              <Th>XP</Th>
+              <Th>% Complete</Th>
+            </Tr>
+          </Thead>
+          <Tbody>{TableElements}</Tbody>
+        </Table>
+      ) : null}
     </Container>
   );
 };
