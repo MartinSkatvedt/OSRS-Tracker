@@ -1,5 +1,6 @@
+import React, { useState } from "react";
 import HiScore from "../components/HiScore/index";
-
+import UserSearcher from "../components/UserSearcher/index";
 import {
   Container,
   Heading,
@@ -11,7 +12,9 @@ import {
 
 const IndexPage = () => {
   const { colorMode, toggleColorMode } = useColorMode();
+  const [username, setUsername] = useState("martusskat");
 
+  const nameChanger = (un: string) => setUsername(un);
   return (
     <Container>
       <Flex>
@@ -24,7 +27,8 @@ const IndexPage = () => {
         </Button>
       </Flex>
 
-      <HiScore />
+      <UserSearcher callbackFn={nameChanger} />
+      <HiScore username={username} />
     </Container>
   );
 };
