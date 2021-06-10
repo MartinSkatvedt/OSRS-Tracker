@@ -1,20 +1,15 @@
-import React, { useState } from "react";
-
-import {
-  Container,
-  Input,
-  Button,
-  InputGroup,
-  InputRightElement,
-} from "@chakra-ui/react";
+import React, { FC, useState } from "react";
+import { Container, Input, Button, InputGroup } from "@chakra-ui/react";
 
 type userSeacherProps = {
   callbackFn: (p1: string) => void;
 };
-const UserSearcher = ({ callbackFn }: userSeacherProps) => {
+const UserSearcher: FC<userSeacherProps> = ({
+  callbackFn,
+}: userSeacherProps) => {
   const [username, changeUsername] = useState("");
-
   const onSubmit = () => callbackFn(username);
+
   return (
     <Container>
       <InputGroup>

@@ -42,7 +42,10 @@ const BossRecordTable = ({ data }: bossRecordTableProps) => {
   return (
     <Container>
       <Table size="sm">
-        <TableCaption>Overview of account boss records</TableCaption>
+        <TableCaption>
+          Overview of account boss records. Note that bosses which have not yet
+          been completed wont show
+        </TableCaption>
         <Thead>
           <Tr>
             <Th>Boss</Th>

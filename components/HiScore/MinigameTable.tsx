@@ -10,7 +10,6 @@ import {
   Td,
   TableCaption,
   Container,
-  Button,
 } from "@chakra-ui/react";
 
 type minigameTableProps = {
@@ -42,7 +41,10 @@ const MinigameTable = ({ data }: minigameTableProps) => {
   return (
     <Container>
       <Table size="sm">
-        <TableCaption>Overview of account minigames</TableCaption>
+        <TableCaption>
+          Overview of account minigames. Note that minigames which have not yet
+          been completed wont show
+        </TableCaption>
         <Thead>
           <Tr>
             <Th>Minigame</Th>

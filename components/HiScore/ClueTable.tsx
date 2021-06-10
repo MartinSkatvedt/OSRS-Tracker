@@ -42,7 +42,10 @@ const ClueTable = ({ data }: clueTableProps) => {
   return (
     <Container>
       <Table size="sm">
-        <TableCaption>Overview of account clue completions</TableCaption>
+        <TableCaption>
+          Overview of account clue completions. Note that clues which have not
+          yet been completed wont show
+        </TableCaption>
         <Thead>
           <Tr>
             <Th>Type</Th>

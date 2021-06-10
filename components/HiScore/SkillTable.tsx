@@ -10,7 +10,6 @@ import {
   Td,
   TableCaption,
   Container,
-  Button,
 } from "@chakra-ui/react";
 const maxXP = 13034431;
 
