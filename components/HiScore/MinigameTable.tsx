@@ -29,8 +29,6 @@ type minigameTableProps = {
         */
 
 const MinigameTable = ({ data }: minigameTableProps) => {
-  const [show, changeVisibility] = useState(false);
-
   const TableElements = Object.keys(data).map((key: string) =>
     data[key].rank >= 0 || data[key].score >= 0 ? (
       <Tr key={key}>
@@ -43,27 +41,17 @@ const MinigameTable = ({ data }: minigameTableProps) => {
 
   return (
     <Container>
-      <Button
-        width="100%"
-        onClick={() =>
-          show ? changeVisibility(false) : changeVisibility(true)
-        }
-      >
-        {show ? "Hide minigames" : "Show minigames"}
-      </Button>
-      {show ? (
-        <Table size="sm">
-          <TableCaption>Overview of account minigames</TableCaption>
-          <Thead>
-            <Tr>
-              <Th>Minigame</Th>
-              <Th>Rank</Th>
-              <Th>Score</Th>
-            </Tr>
-          </Thead>
-          <Tbody>{TableElements}</Tbody>
-        </Table>
-      ) : null}
+      <Table size="sm">
+        <TableCaption>Overview of account minigames</TableCaption>
+        <Thead>
+          <Tr>
+            <Th>Minigame</Th>
+            <Th>Rank</Th>
+            <Th>Score</Th>
+          </Tr>
+        </Thead>
+        <Tbody>{TableElements}</Tbody>
+      </Table>
     </Container>
   );
 };

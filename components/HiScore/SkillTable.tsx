@@ -27,8 +27,6 @@ const calculateOverallComplete = (currentXp: number): string => {
 };
 
 const SkillTable = ({ data }: skillTableProps) => {
-  const [show, changeVisibility] = useState(false);
-
   const TableElements = Object.keys(data).map((key: string) => (
     <Tr key={key}>
       <Td>
@@ -51,28 +49,18 @@ const SkillTable = ({ data }: skillTableProps) => {
 
   return (
     <Container>
-      <Button
-        width="100%"
-        onClick={() =>
-          show ? changeVisibility(false) : changeVisibility(true)
-        }
-      >
-        {show ? "Hide skills" : "Show skills"}
-      </Button>
-      {show ? (
-        <Table size="sm">
-          <TableCaption>Overview of account skills</TableCaption>
-          <Thead>
-            <Tr>
-              <Th>Skill</Th>
-              <Th>Level</Th>
-              <Th>XP</Th>
-              <Th>% Complete</Th>
-            </Tr>
-          </Thead>
-          <Tbody>{TableElements}</Tbody>
-        </Table>
-      ) : null}
+      <Table size="sm">
+        <TableCaption>Overview of account skills</TableCaption>
+        <Thead>
+          <Tr>
+            <Th>Skill</Th>
+            <Th>Level</Th>
+            <Th>XP</Th>
+            <Th>% Complete</Th>
+          </Tr>
+        </Thead>
+        <Tbody>{TableElements}</Tbody>
+      </Table>
     </Container>
   );
 };

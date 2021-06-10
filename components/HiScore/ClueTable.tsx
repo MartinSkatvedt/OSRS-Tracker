@@ -29,8 +29,6 @@ type clueTableProps = {
         */
 
 const ClueTable = ({ data }: clueTableProps) => {
-  const [show, changeVisibility] = useState(false);
-
   const TableElements = Object.keys(data).map((key: string) =>
     data[key].rank >= 0 || data[key].score >= 0 ? (
       <Tr key={key}>
@@ -43,27 +41,17 @@ const ClueTable = ({ data }: clueTableProps) => {
 
   return (
     <Container>
-      <Button
-        width="100%"
-        onClick={() =>
-          show ? changeVisibility(false) : changeVisibility(true)
-        }
-      >
-        {show ? "Hide clue records" : "Show clue records"}
-      </Button>
-      {show ? (
-        <Table size="sm">
-          <TableCaption>Overview of account clue completions</TableCaption>
-          <Thead>
-            <Tr>
-              <Th>Type</Th>
-              <Th>Rank</Th>
-              <Th>Score</Th>
-            </Tr>
-          </Thead>
-          <Tbody>{TableElements}</Tbody>
-        </Table>
-      ) : null}
+      <Table size="sm">
+        <TableCaption>Overview of account clue completions</TableCaption>
+        <Thead>
+          <Tr>
+            <Th>Type</Th>
+            <Th>Rank</Th>
+            <Th>Score</Th>
+          </Tr>
+        </Thead>
+        <Tbody>{TableElements}</Tbody>
+      </Table>
     </Container>
   );
 };
