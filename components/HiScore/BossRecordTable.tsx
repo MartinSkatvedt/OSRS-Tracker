@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Image from "next/image";
+import React, { FC } from "react";
 import { bossRecordType } from "../../types/HiScore";
 import {
   Table,
@@ -17,18 +16,9 @@ type bossRecordTableProps = {
   data: bossRecordType;
 };
 
-/*
-
- <Image
-          src={`/images/${key}.png`}
-          alt="skill icon"
-          width="25"
-          height="25"
-        />
-
-        */
-
-const BossRecordTable = ({ data }: bossRecordTableProps) => {
+const BossRecordTable: FC<bossRecordTableProps> = ({
+  data,
+}: bossRecordTableProps) => {
   const TableElements = Object.keys(data).map((key: string) =>
     data[key].rank >= 0 || data[key].score >= 0 ? (
       <Tr key={key}>

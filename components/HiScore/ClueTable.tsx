@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Image from "next/image";
+import React, { FC } from "react";
 import { clueType } from "../../types/HiScore";
 import {
   Table,
@@ -17,18 +16,7 @@ type clueTableProps = {
   data: clueType;
 };
 
-/*
-
- <Image
-          src={`/images/${key}.png`}
-          alt="skill icon"
-          width="25"
-          height="25"
-        />
-
-        */
-
-const ClueTable = ({ data }: clueTableProps) => {
+const ClueTable: FC<clueTableProps> = ({ data }: clueTableProps) => {
   const TableElements = Object.keys(data).map((key: string) =>
     data[key].rank >= 0 || data[key].score >= 0 ? (
       <Tr key={key}>

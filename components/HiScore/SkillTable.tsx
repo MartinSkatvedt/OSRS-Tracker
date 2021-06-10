@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC } from "react";
 import Image from "next/image";
 import { skillType } from "../../types/HiScore";
 import {
@@ -11,6 +11,7 @@ import {
   TableCaption,
   Container,
 } from "@chakra-ui/react";
+
 const maxXP = 13034431;
 
 type skillTableProps = {
@@ -25,7 +26,7 @@ const calculateOverallComplete = (currentXp: number): string => {
   return ((currentXp / (maxXP * 23)) * 100).toFixed(2) + "%";
 };
 
-const SkillTable = ({ data }: skillTableProps) => {
+const SkillTable: FC<skillTableProps> = ({ data }: skillTableProps) => {
   const TableElements = Object.keys(data).map((key: string) => (
     <Tr key={key}>
       <Td>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import HiScore from "../components/HiScore/index";
 import UserSearcher from "../components/UserSearcher/index";
 import {
@@ -10,7 +10,7 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 
-const IndexPage = () => {
+const IndexPage: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const [username, setUsername] = useState("SurBacon");
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { skillType } from "../../types/HiScore";
 
 import {
@@ -31,7 +31,7 @@ const calcCombatLevel = (
   return [combat, base + melee, base + range, base + mage];
 };
 
-const CombatLevel = ({ data }: combatLevelProps) => {
+const CombatLevel: FC<combatLevelProps> = ({ data }: combatLevelProps) => {
   const levels = calcCombatLevel(
     data.defence.level,
     data.hitpoints.level,

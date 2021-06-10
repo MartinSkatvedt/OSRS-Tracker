@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Image from "next/image";
+import React, { FC } from "react";
 import { minigameType } from "../../types/HiScore";
 import {
   Table,
@@ -16,18 +15,9 @@ type minigameTableProps = {
   data: minigameType;
 };
 
-/*
-
- <Image
-          src={`/images/${key}.png`}
-          alt="skill icon"
-          width="25"
-          height="25"
-        />
-
-        */
-
-const MinigameTable = ({ data }: minigameTableProps) => {
+const MinigameTable: FC<minigameTableProps> = ({
+  data,
+}: minigameTableProps) => {
   const TableElements = Object.keys(data).map((key: string) =>
     data[key].rank >= 0 || data[key].score >= 0 ? (
       <Tr key={key}>
