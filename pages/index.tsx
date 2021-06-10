@@ -12,7 +12,7 @@ import {
 
 const IndexPage = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const [username, setUsername] = useState("martusskat");
+  const [username, setUsername] = useState("SurBacon");
 
   const nameChanger = (un: string) => setUsername(un);
   return (
